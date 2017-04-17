@@ -26,5 +26,12 @@ namespace cis237inclass6.Controllers
 
             return View();
         }
+
+        // localhost:6309/Home/Foo
+        public ActionResult Foo()
+        {
+            ViewBag.MyMagicalFooProperty = "All the Fooos";
+            return View();
+        }
     }
 }
