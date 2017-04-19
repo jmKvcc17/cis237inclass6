@@ -27,6 +27,8 @@ namespace cis237inclass6.Controllers
             return View();
         }
 
+        [Authorize] // automatically redirects people who aren't logged in
+        // trying to get to foo, only protects Foo()
         // localhost:6309/Home/Foo
         public ActionResult Foo()
         {

@@ -24,7 +24,15 @@
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    <li>@Html.ActionLink("Foo text", "Foo", "Home")</li>
+                    @*Check to see if the user is authenticated. If so, we 
+                        can render out the nav link to the foo page.*@
+                    @*"<!----> comments get passed to the client side computer, so AVOID USING THEM*@
+                    @if (Request.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Foo text", "Foo", "Home")</li>
+                        <li>@Html.ActionLink("Cars", "Index", "Cars")</li>
+                    }
+                    
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
