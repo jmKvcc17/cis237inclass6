@@ -6,6 +6,29 @@
 
 <h2>Index</h2>
 
+<div class="form-group">
+    <fieldset>
+        <legend>Search Filter</legend>
+        @{  @*Open up a form that will go to the Filter method on the cars controller with a post request*@
+            using (Html.BeginForm("Filter", "Cars", FormMethod.Post, new { @class = "form-inline" })) // Filter Page, Car controller
+            {
+                @*Render out the Antiforgery Token for the form*@
+                @Html.AntiForgeryToken()
+
+                <label for="make">Make</label>
+                @Html.TextBox("make", (string)ViewBag.filterMake)
+                <label for="min">Minimum Cylinders</label>
+                @Html.TextBox("min", (string)ViewBag.filterMin)
+                <label for="min">Minimum Cylinders</label>
+                @Html.TextBox("max", (string)ViewBag.filterMax)
+                <label for="max">Maximum Cylinders</label>
+                <br />
+                <input type="submit" value="Filter" class="btn btn-info pull-right" />
+            }
+        }
+    </fieldset>
+</div>
+
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
@@ -33,7 +56,7 @@
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
+    <tr> 
         <td>
             @Html.DisplayFor(modelItem => item.year)
         </td>
